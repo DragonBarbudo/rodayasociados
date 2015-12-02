@@ -1,0 +1,192 @@
+@import "style.less";
+/* media queries */
+@media all and (max-width: 959px) and (min-width: 601px){
+/*	*	*	*	*	*	*	*	*	GRID 4 LESS		*	*	*	*	*	*	*	*/
+@columns: 12; @width:600px; @gutt: 10px;
+@w:@width/@columns; .container(@padd:0px) { margin: 0 auto; width: @width; padding-top: @padd; padding-bottom: @padd; } .grid(@gu:@gutt) { display: inline; float: left; position: relative; margin-left: @gu; margin-right: @gu; } .alpha { margin-left: 0;  } .omega { margin-right: 0; } .grid_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num)-(@gutter*2); left: @w*@pushpull; text-align: @align;  }
+.cont_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num); left: @w*@pushpull; text-align: @align;  margin:0;} .clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
+.tester{ position: fixed; top: 0; background: #aaa; height: 100%;width: @width;left: 50%;margin-left: -(@width/2);z-index: 1; opacity: 0.2; div { .grid_(1); height: 100%; background: #eee; }}
+/*	*	*	*	*	*	*	*	*	end		*	*	*	*	*	*	*	*/
+/*	*	*	*	*	*	*	*	*	MAIN CSS		*	*	*	*	*	*	*	*/
+
+
+header{
+	#header{
+		.container;
+		#headerlogo{
+			.grid_(6,3);
+		}
+		ul{
+			.cont_(12);
+			li{
+				&#_inicio{ .grid_(2.4,0, center); line-height: 2.4em;}
+				&#_perfil-profesional{ .grid_(2.4,0, center); }
+				&#_ramas-de-derecho{ .grid_(2.4,0, center); }
+				&#_colaboradores{ .grid_(2.4,0,center); line-height: 2.4em;}
+				&#_contacto{ .grid_(2.4,0,center); line-height: 2.4em;}
+			}
+		}
+	}
+}
+
+
+section#fullsite{
+	.container(40px);
+	section{
+		h1{
+			.grid_(6,3, center);
+			margin-bottom: 20px;
+			}
+		.social{
+			.cont_(10,1);
+			div{
+				position: static;
+				width: 100%;
+			}
+			form{
+				text-align: center;
+				button{
+				
+					width: 100px;
+					margin: 0px auto 15px auto;
+				}
+			}
+			a{
+				clear: none;
+				margin: 0;
+				.grid_(10/3,0,center);
+				float: left;
+				font-size: 1.1em;
+				span{
+					float: none;
+					margin: 0px auto;
+				}
+			}
+		}
+		.contenido{
+			.grid_(10,1);
+		}
+		.maintext{
+		}
+		.doublemenus{
+			ul{
+				.grid_(4);
+				margin: 0;
+			}
+		}
+	}
+}
+
+
+footer{
+	#footer{
+		.container(10px);
+		p{
+			.grid_(12,0,center);
+		}
+	}
+}
+
+} /* end max-width: 800px */
+
+
+
+/* media queries */
+@media all and (max-width: 600px){
+/*	*	*	*	*	*	*	*	*	GRID 4 LESS		*	*	*	*	*	*	*	*/
+@columns: 8; @width:300px; @gutt: 5px;
+@w:@width/@columns; .container(@padd:0px) { margin: 0 auto; width: @width; padding-top: @padd; padding-bottom: @padd; }.grid(@gu:@gutt) { display: inline; float: left; position: relative; margin-left: @gu; margin-right: @gu; }.alpha { margin-left: 0;  }.omega { margin-right: 0; } .grid_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num)-(@gutter*2); left: @w*@pushpull; text-align: @align;  } .cont_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num); left: @w*@pushpull; text-align: @align;  margin:0;} .clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; } .tester{ position: fixed; top: 0; background: #aaa; height: 100%;width: @width;left: 50%;margin-left: -(@width/2);z-index: 1; opacity: 0.2; div { .grid_(1); height: 100%; background: #eee; }}
+/*	*	*	*	*	*	*	*	*	end		*	*	*	*	*	*	*	*/
+/*	*	*	*	*	*	*	*	*	MAIN CSS		*	*	*	*	*	*	*	*/
+
+
+header{
+	#header{
+		.container;
+		
+		#headerlogo{
+			.grid_(8);
+		}
+		ul{
+			.cont_(8);
+			li{
+				&#_inicio{ .grid_(8,0, center); line-height: 1em;}
+				&#_perfil-profesional{ .grid_(8,0, center); }
+				&#_ramas-de-derecho{ .grid_(8,0, center); }
+				&#_colaboradores{ .grid_(8,0,center); line-height: 1em;}
+				&#_contacto{ .grid_(8,0,center); line-height: 1em;}
+			}
+		}
+	}
+}
+
+
+section#fullsite{
+	.container(20px);
+	section{
+		h1{
+			.grid_(8,0, center);
+			display: none;
+			}
+		.social{
+			.cont_(8);
+			padding: 0;
+			margin:0;
+			div, form{
+				margin: 0;
+				padding: 0;
+				position: static;
+				text-align: center;
+			}
+			button{
+				margin-bottom: 10px;
+			}
+			a{
+				clear: none;
+				margin: 0;
+				.grid_(8/3,0,center);
+				text-indent: -3000px;
+				float: left;
+				font-size: 1.1em;
+				height: 32px;
+				span{
+					float: none;
+					margin: 0px auto;
+				}
+			}
+		}
+		.contenido{
+			.grid_(8);
+		}
+		.sectionimg{
+			visibility: hidden;
+			display: none;
+		}
+		.maintext{
+		margin-top: 0px;
+		}
+		.doublemenus{
+			ul{
+				.grid_(8,0,center);
+				.alpha;
+				.omega;
+			}
+		}
+	}
+}
+
+
+footer{
+	#footer{
+		.container(10px);
+		p{
+			.grid_(8,0,center);
+		}
+	}
+}
+
+
+} /* end max-width: 600px */
+
+
+

@@ -1,0 +1,263 @@
+@import "cssresetframe.less";
+
+
+/*	*	*	*	*	*	*	*	*	GRID 4 LESS		*	*	*	*	*	*	*	*/
+@columns: 16;
+@width: 960px;
+@gutt: 10px;
+@w:@width/@columns;
+.container(@padd:0px) { margin: 0 auto; width: @width; padding-top: @padd; padding-bottom: @padd; }
+.grid(@gu:@gutt) { display: inline; float: left; position: relative; margin-left: @gu; margin-right: @gu; }
+.alpha { margin-left: 0;  }
+.omega { margin-right: 0; }
+.grid_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num)-(@gutter*2); left: @w*@pushpull; text-align: @align;  }
+.cont_(@num, @pushpull:0, @align:left, @gutter:@gutt){ .grid(@gutter); width: (@w*@num); left: @w*@pushpull; text-align: @align;  margin:0;}
+.clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
+.tester{ position: fixed; top: 0; background: #aaa; height: 100%;width: @width;left: 50%;margin-left: -(@width/2);z-index: 1; opacity: 0.2; div { .grid_(1); height: 100%; background: #eee; }}
+/*	*	*	*	*	*	*	*	*	end		*	*	*	*	*	*	*	*/
+
+/*	COLORES	*/
+@c1: #f5f5f5;
+@c2: #212121;
+@c3: #003F5F;
+//@c4: #001D2D;
+@c4: #e89e0b;
+@c5: #888888;
+
+.font{
+	font-family: 'Basic', sans-serif;
+}
+.font1{
+	font-family: 'Questrial', sans-serif;
+}
+
+
+/*	TESTER	*/
+.tester{
+	visibility: visible ;
+}
+/*	*	*	*	*	*	*	*	*	MAIN CSS		*	*	*	*	*	*	*	*/
+
+
+body{
+	background: @c1;
+	.font;
+}
+
+header{
+	width: 100%;
+	background: @c3;
+	border-bottom: 1px solid @c4;
+	#header{
+		.container;
+		#headerlogo{
+			background: url(../imgs/rodayW.png) no-repeat bottom center;
+			//background-size: 220px 176px;
+			.grid_(4,6);
+			height: 36px;
+			margin: 24px 0;
+		}
+		ul{
+			list-style: none;
+			.cont_(14,1);
+			li{
+				padding: 4px 0;
+				&#_inicio{ .grid_(2,0, center); }
+				&#_perfil-profesional{ .grid_(4,0, center); }
+				&#_ramas-de-derecho{ .grid_(3,0, center); }
+				&#_colaboradores{ .grid_(3,0,center); }
+				&#_contacto{ .grid_(2,0,center); }
+				a{
+					color: @c1;
+					text-decoration: none;
+					.font;
+					display: block;
+					padding: 4px 0;
+					&:hover, &.active{
+						background: @c4;
+					}
+				}
+			}
+		}	
+	}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2){
+	header{
+		margin-top: 0 !important;
+		#header{
+			#headerlogo{
+				background: url(../imgs/rodayW2x.png) no-repeat bottom center;
+				background-size: 220px 176px;
+			}
+		}
+	}
+}
+section#fullsite{
+	.container(40px);
+	overflow: hidden;
+	.font;
+	font-size: 1.1em;
+	section{
+		position: relative;
+		h1{
+			.grid_(4,1);
+			margin-bottom: -180px;
+			padding-top: 5px;
+
+		}
+		.social{
+			height: 100px;
+			.grid_(4,2);
+			margin-top: 180px;
+			margin-bottom: 20px;
+			position: static;
+			
+			div{
+				width: 220px;
+				position: absolute;
+				bottom: 0;
+				margin: 0;
+				left: 120px;
+			}
+
+			button{
+				margin: auto;
+				.rounded;
+				background: @c3;
+				border: none;
+				color: @c1;
+				.font1;
+				padding: 5px 28px;
+				&:hover{
+					background: @c4;
+				}
+			}
+			a{
+				clear:both;
+				display: block;
+				color: @c3;
+				text-decoration: none;
+				font-size: 1.2em;
+				line-height: 32px;
+				margin: 30px 0;
+				span{
+					display: block;
+					float: left;
+					width: 32px;
+					height: 32px;
+					margin-right: 10px;
+				}
+				&.fb span{ background: url(../imgs/fb.png) no-repeat;}
+				&.in span{ background: url(../imgs/in.png) no-repeat;}
+				&.mail span{ background: url(../imgs/mail.png) no-repeat;}
+				&:hover{
+					color: @c4;
+					span{
+						background-position: right;
+						.transition(background-position ease-out 0.2s);
+					}
+				}
+			}
+		}
+		.contenido{
+			.grid_(8,2);
+		}
+		.sectionimg{
+			text-align: center;
+			margin-bottom: 20px;
+			img{border-bottom: 2px solid @c3; width: 100%;}
+		}
+		.maintext{
+			margin-top: 40px;
+			color: @c2;
+			text-align: justify;
+			line-height: 1.6em;
+			p{
+					margin-bottom: 20px;
+			}
+			blockquote{
+				color: @c3;
+				.font1;
+				font-size: 1.3em;
+				text-align: center;
+			}
+		}
+		.doublemenus{
+			
+			ul{
+				.grid_(4);
+				.alpha;
+				.omega;
+				margin-left: 5px;
+				.font1;
+				font-size: 1.1em;
+				list-style: none;
+				color: @c3;
+				list-style-position: inside;
+				li{
+					text-align: center;
+					margin: 10px 0;
+				}
+			}
+		}
+		h3{
+			.font1;
+			color: @c3;
+			font-size: 1.2em;
+		}
+		form#contactform{
+			label{
+				display:block;
+				
+			}
+			input, textarea, [required]{
+				background: @c1*0.95;
+				border: none;
+				border-bottom: 1px solid #fff;
+				padding: 4px 0;
+				width: 100%;
+				margin-bottom: 10px;
+				resize: none;
+				.font1;
+			}
+			textarea{
+				height: 60px;
+			}
+			button{
+				background: @c3;
+				border: none;
+				float: right;
+				color: @c1;
+				.font1;
+				padding: 5px 20px;
+				&:hover{
+
+					background: @c4;
+					border-bottom: 1px solid @c3;
+				}
+			}
+		}
+	}
+}
+
+
+footer{
+	background: @c3;
+	border-bottom: 1px solid @c4;
+	#footer{
+		.container(10px);
+		.font1;
+		color: @c1;
+		p{
+			.grid_(16,0,center);
+			a{
+				color: @c1;
+			}
+		}
+	}
+}
+
+
+/* apprise */
+
+.appriseOverlay{position:fixed;top:0;left:0;background:rgba(0,0,0,0.3);display:none;}.appriseOuter{background:#eee;border:1px solid #fff;box-shadow:0 3px 7px #333;-moz-box-shadow:0 3px 7px #333;-webkit-box-shadow:0 3px 7px #333;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-khtml-border-radius:4px;z-index:99999999;min-width:200px;min-height:50px;max-width:75%;position:fixed;display:none;}.appriseInner{color:#333;text-shadow:0 1px 0 #fff;padding:20px;}.appriseInner button{border:1px solid #bbb;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-khtml-border-radius:3px;background:0;color:#232d3d;font-size:12px;font-weight:700;text-shadow:0 1px 0 #fff;cursor:pointer;box-shadow:0 1px 2px #ccc;-moz-box-shadow:0 1px 2px #ccc;-webkit-box-shadow:0 1px 2px #ccc;margin:0 3px;padding:4px 10px;}.appriseInner button:hover{color:#d85054;}.aButtons,.aInput{text-align:center;margin:20px 10px 0;}.aTextbox{border:1px solid #aaa;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-khtml-border-radius:4px;box-shadow:0 1px 0 #fff;-moz-box-shadow:0 1px 0 #fff;-webkit-box-shadow:0 1px 0 #fff;width:180px;font-size:12px;font-weight:700;padding:5px 10px;}
